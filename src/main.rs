@@ -1,3 +1,5 @@
+mod simulation;
+
 use image::ImageReader;
 
 fn main() {
