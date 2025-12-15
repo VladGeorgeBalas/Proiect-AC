@@ -1,18 +1,20 @@
 use image::ImageReader;
 
 fn main() {
-    let img_rgb_grayscale = ImageReader::open("test_2/1341834649.259514.png")
+    let file_rgb = "test_2/1341834649.259514.png";
+    let file_depth = "test_2/1341834649.391649.png";
+
+    let img_rgb_grayscale = ImageReader::open(file_rgb)
         .unwrap()
         .decode()
         .unwrap()
         .to_luma8();
-    let img_depth_grayscale = ImageReader::open("test_2/1341834649.259514.png")
+    let img_depth_grayscale = ImageReader::open(file_depth)
         .unwrap()
         .decode()
         .unwrap()
         .to_luma8();
 
-    // debug pt viitor
     let (width_rgb, height_rgb) = img_rgb_grayscale.dimensions();
     println!("RGB -> width: {}, height: {}", width_rgb, height_rgb);
     let ( width_depth, height_depth) = img_depth_grayscale.dimensions();
@@ -36,4 +38,7 @@ fn main() {
     }
 
     println!("\nDaca nu avem erori, e de bine!");
+    //debug
+    img_rgb_grayscale.save("out_rgb_gray.png").unwrap();
+    img_depth_grayscale.save("out_depth_gray.png").unwrap();
 }
