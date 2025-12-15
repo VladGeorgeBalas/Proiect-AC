@@ -17,6 +17,7 @@ fn main() {
         .unwrap()
         .to_luma8();
 
+    // da momentan 640 x 480
     let (width_rgb, height_rgb) = img_rgb_grayscale.dimensions();
     println!("RGB -> width: {}, height: {}", width_rgb, height_rgb);
     let ( width_depth, height_depth) = img_depth_grayscale.dimensions();
@@ -26,6 +27,7 @@ fn main() {
     let mut matrix_rgb: Vec<Vec<u8>> = vec![vec![0; width_rgb as usize]; height_rgb as usize];
     let mut matrix_depth: Vec<Vec<u8>> = vec![vec![0; width_depth as usize]; height_depth as usize];
 
+    // to-do : da-i trim la 480 x 480
 
     //mutam datele in imagine
     for y in 0..height_rgb {
