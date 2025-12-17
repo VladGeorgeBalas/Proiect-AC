@@ -1,10 +1,10 @@
 mod simulation;
 use simulation::*;
-mod doc;
 mod corners;
+mod doc;
 
-use image::ImageReader;
 use corners::*;
+use image::ImageReader;
 
 fn main() {
     let file_rgb = "test_2/1341834649.259514.png";
@@ -24,8 +24,11 @@ fn main() {
     // da momentan 640 x 480
     let (width_rgb, height_rgb) = img_rgb_grayscale.dimensions();
     println!("RGB -> width: {}, height: {}", width_rgb, height_rgb);
-    let ( width_depth, height_depth) = img_depth_grayscale.dimensions();
-    println!("Depth -> width depth: {}, height depth: {}", width_depth, height_depth);
+    let (width_depth, height_depth) = img_depth_grayscale.dimensions();
+    println!(
+        "Depth -> width depth: {}, height depth: {}",
+        width_depth, height_depth
+    );
 
     //matrice pentru a o da simularii
     let mut matrix_rgb: Vec<Vec<u8>> = vec![vec![0; width_rgb as usize]; height_rgb as usize];
@@ -36,7 +39,7 @@ fn main() {
 
     //mutam datele in imagine
     for y in 0..height_depth {
-        for x in  79..559{
+        for x in 79..559 {
             matrix_rgb[y as usize][x as usize] = img_rgb_grayscale.get_pixel(x, y)[0];
         }
     }
