@@ -1,10 +1,31 @@
 use std::ptr::null;
 use rhdl::prelude::*;
 use rhdl::bits;
+use rhdl_fpga::core::dff::DFF;
+
+/*
+
+    Prolog fisier:
+
+    Tipuri de baza pentru lucrul cu fisiere.
+    ImageMatrix<h, w> -> un patch de imagine
+    TransformMatrix -> 2x2 matrice de transformare
+
+ */
 
 #[derive(Digital, PartialEq, Eq)]
 pub struct ImageMatrix<const WIDTH: usize, const HEIGHT: usize>{
-    pub data : [[Bits<U8>; WIDTH]; HEIGHT]
+    pub data : [[Bits<U8>; WIDTH]; HEIGHT],
+
+}
+
+impl<const WIDTH: usize, const HEIGHT: usize> Default for ImageMatrix<WIDTH, HEIGHT>{
+    fn default()-> Self{
+        let data = core::array::from_fn(|y| {
+            core::array::from_fn(|x| Bits::<U8>::from(0 as u128))
+        });
+        Self{data}
+    }
 }
 
 impl<const WIDTH: usize, const HEIGHT: usize> ImageMatrix<WIDTH, HEIGHT>
@@ -17,10 +38,11 @@ impl<const WIDTH: usize, const HEIGHT: usize> ImageMatrix<WIDTH, HEIGHT>
     }
 }
 
-pub fn simulate(matrix_rgb: Vec<Vec<u8>>, matrix_depth: Vec<Vec<u8>>) -> Result<(), RHDLError>
-{
-    let image_rgb_bits: ImageMatrix<480, 480> = ImageMatrix::create(matrix_rgb);
-    let image_rgb_depth: ImageMatrix<480, 480> = ImageMatrix::create(matrix_depth);
-
-    return Ok(());
+#[derive(Digital, PartialEq, Eq, Default)]
+pub struct TransformMatrix {
+    pub data: [[Bits<U8>; 2]; 2]
 }
+
+/* TODO: trebuie cumva separata imaginea in patch-uri de 2x2 si tinuta minte. Nu faceti iesirea Sequential
+ca se buleste de la marime.
+*/

@@ -1,6 +1,10 @@
 mod simulation;
+use simulation::*;
+mod doc;
+mod corners;
 
 use image::ImageReader;
+use corners::*;
 
 fn main() {
     let file_rgb = "test_2/1341834649.259514.png";
@@ -27,16 +31,17 @@ fn main() {
     let mut matrix_rgb: Vec<Vec<u8>> = vec![vec![0; width_rgb as usize]; height_rgb as usize];
     let mut matrix_depth: Vec<Vec<u8>> = vec![vec![0; width_depth as usize]; height_depth as usize];
 
-    // to-do : da-i trim la 480 x 480
+    // trim-ul este dat din topor
+    // TODO: la final DE TOT, de facut dinamic asta
 
     //mutam datele in imagine
-    for y in 0..height_rgb {
-        for x in 0..width_rgb {
+    for y in 0..height_depth {
+        for x in  79..559{
             matrix_rgb[y as usize][x as usize] = img_rgb_grayscale.get_pixel(x, y)[0];
         }
     }
     for y in 0..height_depth {
-        for x in 0..width_depth {
+        for x in 79..559 {
             matrix_depth[y as usize][x as usize] = img_depth_grayscale.get_pixel(x, y)[0];
         }
     }
@@ -45,4 +50,6 @@ fn main() {
     //debug
     img_rgb_grayscale.save("out_rgb_gray.png").unwrap();
     img_depth_grayscale.save("out_depth_gray.png").unwrap();
+
+    let _ = simulate(matrix_rgb, matrix_depth);
 }

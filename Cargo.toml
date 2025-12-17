@@ -5,6 +5,7 @@ edition = "2024"
 
 [dependencies]
 anyhow = "1.0.100"
+doc = "0.0.0"
 image = "0.25.9"
 rhdl = {git = "https://github.com/samitbasu/rhdl.git",rev = "8d04954"}
 rhdl-fpga = {git = "https://github.com/samitbasu/rhdl.git",rev = "8d04954"}
