@@ -1,5 +1,5 @@
-# Proiect AC - Tema 9 - calibrarea unei camere Lidar si a uneia RGB, intr-o singura sursa RGBD
-### Balas Vlad-George 333AB, Radu Codreanu 334AB, David Grapa 332AB
+# Proiect AC - Tema 9 - Point Cloud-RGB Calibration - calibrarea unei camere Lidar si a uneia RGB, intr-o singura sursa RGBD
+### Balas Vlad-George 333AB, Codreanu Radu 334AB, Grapa David-Gabriel 332AB
 
 ---
 
