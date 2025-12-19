@@ -57,8 +57,6 @@ fn main() {
         }
     }
 
-    println!("\nDaca nu avem erori, e de bine!");
-    //debug
     img_rgb_grayscale.save("out_rgb_gray.png").unwrap();
     img_depth_grayscale.save("out_depth_gray.png").unwrap();
 
