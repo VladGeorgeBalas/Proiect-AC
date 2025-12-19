@@ -112,7 +112,8 @@
 
 
 /*
-La cat am stat sa fac tema, imi permit sa las aici un mic playlist de spotify:
+las aici un mic playlist de spotify, ce am mai ascultat cat am lucrat ( nu e tot ce am ascultat dar
+sunt piese bune ) :
     - Korn - Twisted Transistor : https://open.spotify.com/track/05NpeTQWnzXS1d8ZqL4YFZ?si=4ab58e918e4c4e2f
     - Korn - Coming Undone : https://open.spotify.com/track/3o7TMr6RmIusYH7Kkg7ujR?si=e7c4c740714d411b
     - MCR - House of wolves : https://open.spotify.com/track/7j2Bmzpnf6RwEWEQ2sv8Ho?si=e91b3065c0714889
@@ -122,8 +123,7 @@ La cat am stat sa fac tema, imi permit sa las aici un mic playlist de spotify:
         : https://open.spotify.com/album/5cjJRrzeVRE79YXiTSCbVf?si=h18pEK-SR0KaG_mfzjeOCg
 
 Si un counter de cat a luat, heheheha
-Ore de lucru:
-16
+Ore de lucru: 17
 */
 
 
