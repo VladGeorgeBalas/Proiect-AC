@@ -1,4 +1,5 @@
-#[doc="Modul pentru testul circuitelor combinationale. Nu are niciun impact asupra "]
+//! Modul pentru testul circuitelor combinationale. Nu are niciun impact asupra\
+//! restului proiectului
 
 use rhdl::bits;
 use rhdl::prelude::*;
