@@ -244,7 +244,7 @@ pub fn circ_kernel(
 }
 
 
-pub fn simulate(matrix_rgb: Vec<Vec<u8>>, matrix_depth: Vec<Vec<u8>>) -> Result<(), RHDLError> {
+pub fn simulate(matrix_rgb: Vec<Vec<u8>>, matrix_depth: Vec<Vec<u8>>, graphs : bool, clocks : u64) -> Result<(), RHDLError> {
     // aplatizam matricile si le facem vector de intrare
     let mut input: Vec<(Bits<8>, Bits<8>, Bits<8>, Bits<8>)> = Vec::new();
     for i in 0..matrix_rgb.len() {
@@ -262,8 +262,8 @@ pub fn simulate(matrix_rgb: Vec<Vec<u8>>, matrix_depth: Vec<Vec<u8>>) -> Result<
 
     //tip de run
     let select = false;
-    if select {
-        let input = input.into_iter().with_reset(1).clock_pos_edge(10);
+    if graphs {
+        let input = input.into_iter().with_reset(1).clock_pos_edge(clocks);
         let circ = circ::default();
 
         // print wave-uri

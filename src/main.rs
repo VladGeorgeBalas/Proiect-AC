@@ -7,6 +7,14 @@ use crate::circ_seq::simulate;
 use image::ImageReader;
 
 fn main() {
+
+    // CONFIG!!
+
+    let graphs = false;
+    let clocks : u64 = 10;
+
+
+
     let file_rgb = "Test_3/square_1.png";
     let file_depth = "Test_3/square_3.png";
 
@@ -54,5 +62,5 @@ fn main() {
     img_rgb_grayscale.save("out_rgb_gray.png").unwrap();
     img_depth_grayscale.save("out_depth_gray.png").unwrap();
 
-    let _ = simulate(matrix_rgb, matrix_depth);
+    let _ = simulate(matrix_rgb, matrix_depth, graphs, clocks);
 }
