@@ -1,3 +1,5 @@
+#[doc="Modul pentru testul circuitelor combinationale. Nu are niciun impact asupra "]
+
 use rhdl::bits;
 use rhdl::prelude::*;
 use rhdl_fpga::core::dff::DFF;
