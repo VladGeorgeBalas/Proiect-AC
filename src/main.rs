@@ -2,13 +2,15 @@ mod simulation;
 use simulation::*;
 mod corners;
 mod doc;
+mod MPU;
+mod mask;
 
-use corners::*;
+use crate::mask::simulate;
 use image::ImageReader;
 
 fn main() {
-    let file_rgb = "test_2/1341834649.259514.png";
-    let file_depth = "test_2/1341834649.391649.png";
+    let file_rgb = "Test_3/square_1.png";
+    let file_depth = "Test_3/square_1.png";
 
     let img_rgb_grayscale = ImageReader::open(file_rgb)
         .unwrap()
@@ -38,13 +40,13 @@ fn main() {
     // TODO: la final DE TOT, de facut dinamic asta
 
     //mutam datele in imagine
-    for y in 0..height_depth {
-        for x in 79..559 {
+    for y in 0..height_rgb {
+        for x in 0..width_rgb {
             matrix_rgb[y as usize][x as usize] = img_rgb_grayscale.get_pixel(x, y)[0];
         }
     }
     for y in 0..height_depth {
-        for x in 79..559 {
+        for x in 0..width_depth {
             matrix_depth[y as usize][x as usize] = img_depth_grayscale.get_pixel(x, y)[0];
         }
     }

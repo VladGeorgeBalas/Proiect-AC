@@ -2,6 +2,7 @@ use rhdl::bits;
 use rhdl::prelude::*;
 use rhdl_fpga::core::dff::DFF;
 use std::ptr::null;
+use crate::simulation::ImageMatrix;
 
 /*
    STAGE 2 din .txt
@@ -11,45 +12,54 @@ use std::ptr::null;
 
 */
 
-#[derive(Synchronous, SynchronousDQ, Clone, Debug)]
-pub struct CornerDetect {
-    pub memory: DFF<Bits<U16>>,
-}
-
-impl Default for CornerDetect {
-    fn default() -> Self {
-        Self {
-            memory: DFF::new(Bits::<U16>::default()),
-        }
-    }
-}
-
-impl SynchronousIO for CornerDetect {
-    type I = ImageMatrix<4, 4>;
-    type O = Bits<U8>;
-    type Kernel = corner_kernel;
-}
-
 // Stage 2
 // kernel pentru gasire colturi in imagine
+// circuit combinational
+//#[kernel]
+/*
+pub fn mem_mapper(
+    i: Bits<U8>,  // pasul (index liniar)
+    w: Bits<U8>,  // width
+    h: Bits<U8>,  // height (nefolosit aici, dar îl păstrăm)
+) -> (Bits<U8>, Bits<U8>, Bits<U8>, Bits<U8>) {
+
+    // Evită împărțirea la 0 când w == 0 sau w == 1
+    if w <= bits(1) {
+        return (bits(0), bits(0), bits(0), bits(0));
+    }
+
+    let w_minus_1 = w - bits(1);
+    let skip = i / w_minus_1;          // i / (w-1)
+    let base = i + skip;               // i + i/(w-1)
+
+    let b1 = base;
+    let b2 = base + bits(1);
+    let b3 = base + w;
+    let b4 = base + w + bits(1);
+
+    (b1, b2, b3, b4)
+}
+*/
+
+/*
 #[kernel]
-pub fn corner_kernel(_cr: ClockReset, _i: ImageMatrix<4, 4>, _q: Q) -> (Bits<U8>, D) {
+pub fn corner_finder(p1 : Bits<U8>, p2 : Bits<U8>, p3 : Bits<U8>, p4:Bits<U8>) -> Bits<U8>{
     // _i[1] : imaginea RGB
     // _i[2] : imaginea Depth
 
     // raspuns la colturine RBG
-    let a: s8 = _i.data[0][0].as_signed();
-    let b: s8 = _i.data[0][1].as_signed();
-    let c: s8 = _i.data[1][0].as_signed();
-    let d: s8 = _i.data[1][1].as_signed();
-
-    let mut res = (a + d) - (c + b);
+    let mut res = (p1.as_signed() + p4.as_signed()) - (p2.as_signed() + p3.as_signed());
     if res < bits(0).as_signed() {
         res = -res;
     }
 
-    (res.as_unsigned(), D { memory: bits(0) })
+    res.as_unsigned()
 }
+
+
+
+// Cod INUTIL !!!
+// fost cod de test, nu folosi
 
 use crate::doc::write_svg;
 use crate::simulation::ImageMatrix;
@@ -79,5 +89,6 @@ pub fn simulate(matrix_rgb: Vec<Vec<u8>>, matrix_depth: Vec<Vec<u8>>) -> Result<
 
     return Ok(());
 }
+*/
 
 // TODO: Poate putem cumva clarifica ce vedem? sa dam plot cumva la pixeli sa clarificam care sunt

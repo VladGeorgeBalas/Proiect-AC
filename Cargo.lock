@@ -1525,13 +1525,12 @@ checksum = "0c6a884d2998352bb4daf0183589aec883f16a6da1f4dde84d8e2e9a5409a1ce"
 [[package]]
 name = "rhdl"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
  "rhdl-bits",
  "rhdl-core",
  "rhdl-macro",
  "rhdl-trace-type",
- "rhdl-typenum",
  "rhdl-vlog",
  "serde_json",
 ]
@@ -1539,18 +1538,18 @@ dependencies = [
 [[package]]
 name = "rhdl-bits"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
- "rhdl-typenum",
  "seq-macro",
 ]
 
 [[package]]
 name = "rhdl-core"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
  "anyhow",
+ "badascii-doc",
  "ena",
  "expect-test",
  "fnv",
@@ -1581,7 +1580,7 @@ dependencies = [
 [[package]]
 name = "rhdl-fpga"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
  "anyhow",
  "array-init",
@@ -1595,7 +1594,7 @@ dependencies = [
 [[package]]
 name = "rhdl-macro"
 version = "0.0.3"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
  "rhdl-macro-core",
 ]
@@ -1603,7 +1602,7 @@ dependencies = [
 [[package]]
 name = "rhdl-macro-core"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
  "evalexpr",
  "inflections",
@@ -1620,7 +1619,7 @@ dependencies = [
 [[package]]
 name = "rhdl-span"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
  "serde",
 ]
@@ -1628,25 +1627,17 @@ dependencies = [
 [[package]]
 name = "rhdl-trace-type"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
  "serde",
 ]
 
 [[package]]
-name = "rhdl-typenum"
-version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
-dependencies = [
- "rhdl-macro",
- "seq-macro",
-]
-
-[[package]]
 name = "rhdl-vlog"
 version = "0.1.0"
-source = "git+https://github.com/samitbasu/rhdl.git?rev=8d04954#8d0495473e0248a2c6afb7337df477eb83cecef0"
+source = "git+https://github.com/samitbasu/rhdl.git?rev=4ab1478#4ab1478dcb3e24ae903456d55ccaf968beeade3b"
 dependencies = [
+ "anyhow",
  "log",
  "miette",
  "proc-macro2",
@@ -1654,6 +1645,7 @@ dependencies = [
  "serde",
  "syn 2.0.111",
  "syn-miette",
+ "tempfile",
  "thiserror",
 ]
 
